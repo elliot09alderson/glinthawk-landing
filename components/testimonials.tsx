@@ -6,8 +6,8 @@ import Image, { StaticImageData } from "next/image";
 import TestimonialImg01 from "@/public/images/TestimonialImg01.jpg";
 import TestimonialImg02 from "@/public/images/TestimonialImg02.jpg";
 import TestimonialImg03 from "@/public/images/TestimonialImg03.jpg";
-import TestimonialImg04 from "@/public/images/TestimonialImg03.jpg";
-import TestimonialImg05 from "@/public/images/TestimonialImg03.jpg";
+import TestimonialImg04 from "@/public/images/shanu.jpeg";
+import TestimonialImg05 from "@/public/images/zimbabwe.jpeg";
 import TestimonialImg06 from "@/public/images/TestimonialImg06.jpg";
 import TestimonialImg07 from "@/public/images/TestimonialImg07.jpg";
 
