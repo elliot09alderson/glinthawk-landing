@@ -76,8 +76,8 @@ export default function Features() {
                 Project Milestones
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+                We Track progress across custom flows of our developers team.
+                For the right balance for the user, privacy and security.
               </p>
             </article>
             <article>
