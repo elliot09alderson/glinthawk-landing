@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
+  title: "Home - Glinthawk technology",
+  description: "Best Product Development Company at very affordable price",
 };
 
 import PageIllustration from "@/components/page-illustration";
