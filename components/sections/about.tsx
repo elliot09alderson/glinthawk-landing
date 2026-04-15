@@ -35,19 +35,22 @@ export default function About() {
 
             <Reveal delay={0.2}>
               <p className="mb-6 text-base leading-relaxed text-gray-400">
-                Glinthawk Technology is a software engineering and AI company
-                headquartered in Bhilai, India. We partner with startups,
-                scale-ups, and enterprises across the globe to design and ship
-                digital products that move the needle.
+                Glinthawk Technology is a software development and AI company
+                headquartered near IIT Bhilai in Chhattisgarh, India. We
+                partner with startups, scale-ups, and enterprises across the
+                globe — from Raipur and Durg to San Francisco and London — to
+                design and ship digital products that drive real growth.
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
               <p className="mb-6 text-base leading-relaxed text-gray-400">
                 What sets us apart is our depth in artificial intelligence. We
-                build autonomous agents, integrate large language models into
-                real workflows, and deliver production-grade applications across
-                mobile, desktop, and web platforms.
+                build autonomous AI agents, integrate large language models into
+                production workflows, and deliver enterprise-grade applications
+                across mobile, desktop, and web. As a leading IT company in
+                Chhattisgarh, we bring Silicon Valley engineering standards to
+                central India.
               </p>
             </Reveal>
 
@@ -55,8 +58,8 @@ export default function About() {
               <p className="text-base leading-relaxed text-gray-400">
                 We also embed dedicated engineers into your existing teams,
                 operating as a seamless extension of your organization. Whether
-                you need a complete product built or a senior developer for three
-                months — we deliver.
+                you need a full product built from scratch, a senior developer
+                for three months, or an AI strategy consultant — we deliver.
               </p>
             </Reveal>
           </div>

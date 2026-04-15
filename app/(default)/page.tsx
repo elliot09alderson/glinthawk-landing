@@ -1,24 +1,41 @@
-export const metadata = {
-  title: "Glinthawk Technology — AI-First Product & Service Company",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "AI Software Development & Digital Marketing Company | Bhilai, Chhattisgarh — Glinthawk Technology",
   description:
-    "We engineer intelligent digital solutions — from AI-powered products and autonomous agents to full-stack mobile, desktop, and web applications. Based in Bhilai, Chhattisgarh, building for the world.",
+    "Glinthawk Technology is a leading AI software development and digital marketing company in Bhilai, Chhattisgarh. We specialize in AI-powered products, autonomous agents, mobile & desktop app development, SEO, GEO optimization, and personal branding. Serving clients globally from India.",
   keywords: [
-    "AI products",
-    "software development",
-    "digital marketing",
-    "SEO",
-    "GEO optimization",
-    "mobile app development",
-    "desktop applications",
-    "AI agents",
-    "Bhilai",
-    "Chhattisgarh",
-    "Glinthawk",
+    "AI software development Bhilai",
+    "software company Chhattisgarh",
+    "digital marketing agency Bhilai",
+    "SEO company Chhattisgarh",
+    "mobile app development near IIT Bhilai",
+    "AI agents development India",
+    "web development Raipur Bhilai Durg",
+    "GEO optimization services",
+    "IT company near IIT Bhilai",
+    "custom software development Chhattisgarh",
+    "React Next.js developer India",
+    "Flutter developer Chhattisgarh",
+    "AI automation company",
+    "LLM chatbot development",
+    "personal branding agency",
+    "desktop application development India",
+    "startup technology partner",
+    "dedicated developers India",
+    "staff augmentation Chhattisgarh",
+    "machine learning company India",
   ],
+  alternates: {
+    canonical: "https://glinthawktechnologies.com",
+  },
   openGraph: {
-    title: "Glinthawk Technology — AI-First Product & Service Company",
+    title:
+      "Glinthawk Technology — AI Software Development & Digital Marketing | Chhattisgarh",
     description:
-      "We engineer intelligent digital solutions — from AI-powered products to full-stack applications.",
+      "Leading AI-first software development company in Bhilai, Chhattisgarh. Building intelligent products, mobile apps, desktop software, and delivering digital marketing & SEO services worldwide.",
+    url: "https://glinthawktechnologies.com",
     type: "website",
   },
 };
@@ -33,6 +50,7 @@ import Process from "@/components/sections/process";
 import Products from "@/components/sections/products";
 import Projects from "@/components/sections/projects";
 import Testimonials from "@/components/testimonials";
+import Articles from "@/components/sections/articles";
 import Cta from "@/components/cta";
 
 export default function Home() {
@@ -48,6 +66,7 @@ export default function Home() {
       <Products />
       <Projects />
       <Testimonials />
+      <Articles />
       <Cta />
     </>
   );

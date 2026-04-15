@@ -2,8 +2,10 @@ import "./css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import type { Metadata } from "next";
 
 import Header from "@/components/ui/header";
+import JsonLd from "@/components/seo/json-ld";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,39 +40,82 @@ const nacelle = localFont({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "Glinthawk Technology — AI-First Product & Service Company",
+    default:
+      "Glinthawk Technology — AI Software Development & Digital Marketing Company in Chhattisgarh",
     template: "%s | Glinthawk Technology",
   },
   description:
-    "We engineer intelligent digital solutions — AI products, autonomous agents, mobile & desktop apps, digital marketing, and SEO. Based in Bhilai, Chhattisgarh.",
+    "Leading AI software development company in Bhilai, Chhattisgarh. We build AI-powered products, autonomous agents, mobile & desktop apps, and deliver digital marketing, SEO & GEO optimization services globally.",
   keywords: [
-    "Glinthawk",
-    "AI products",
-    "software development company",
-    "Bhilai",
-    "Chhattisgarh",
-    "AI agents",
-    "mobile app development",
-    "digital marketing",
-    "SEO",
-    "GEO optimization",
+    "AI software development company Chhattisgarh",
+    "software development company Bhilai",
+    "AI development company India",
+    "digital marketing agency Chhattisgarh",
+    "SEO services Bhilai",
+    "GEO optimization company",
+    "mobile app development Chhattisgarh",
+    "AI agents development",
+    "custom software development India",
+    "web development company Bhilai",
+    "IT company Chhattisgarh",
+    "AI products company",
+    "desktop application development",
+    "personal branding agency India",
+    "React Next.js development",
+    "Flutter app development India",
+    "machine learning solutions",
+    "LLM integration services",
+    "digital marketing Raipur Bhilai",
+    "Glinthawk Technology",
   ],
-  authors: [{ name: "Glinthawk Technology" }],
-  metadataBase: new URL("https://glinthawk.com"),
+  authors: [{ name: "Glinthawk Technology", url: "https://glinthawktechnologies.com" }],
+  creator: "Glinthawk Technology",
+  publisher: "Glinthawk Technology",
+  metadataBase: new URL("https://glinthawktechnologies.com"),
+  alternates: {
+    canonical: "https://glinthawktechnologies.com",
+  },
   openGraph: {
-    title: "Glinthawk Technology — AI-First Product & Service Company",
+    title: "Glinthawk Technology — AI Software Development & Digital Marketing",
     description:
-      "We engineer intelligent digital solutions — from AI-powered products to full-stack applications.",
+      "Leading AI software development and digital marketing company based in Chhattisgarh, India. Building intelligent solutions for businesses worldwide.",
+    url: "https://glinthawktechnologies.com",
     siteName: "Glinthawk Technology",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Glinthawk Technology",
+    title: "Glinthawk Technology — AI Software Development Company",
     description:
-      "AI-first product & service company. Engineering intelligent solutions from Bhilai, India.",
+      "AI-powered software development, digital marketing & SEO services. Based in Chhattisgarh, delivering globally.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Add your verification codes here when you have them
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+  },
+  category: "technology",
+  other: {
+    "geo.region": "IN-CT",
+    "geo.placename": "Bhilai, Chhattisgarh",
+    "geo.position": "21.1938;81.3509",
+    ICBM: "21.1938, 81.3509",
+    "revisit-after": "7 days",
+    rating: "general",
   },
 };
 
@@ -84,6 +129,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
+        <JsonLd />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
