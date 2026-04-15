@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Reveal, LineReveal } from "@/components/motion/reveal";
 
@@ -49,10 +49,70 @@ const testimonials = [
   },
 ];
 
+function TestimonialCard({
+  testimonial,
+  index,
+  featured = false,
+}: {
+  testimonial: (typeof testimonials)[0];
+  index: number;
+  featured?: boolean;
+}) {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      }}
+      className={`group rounded-2xl border border-gray-800 bg-gray-900/20 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/40 ${
+        featured ? "p-8 md:p-10" : "p-6 md:p-8"
+      }`}
+    >
+      {/* Quote */}
+      <span className="mb-4 block font-nacelle text-3xl leading-none text-gray-800">
+        &ldquo;
+      </span>
+      <blockquote
+        className={`mb-8 leading-relaxed text-gray-300 ${
+          featured ? "text-base sm:text-lg" : "text-sm"
+        }`}
+      >
+        {testimonial.quote}
+      </blockquote>
+
+      {/* Author */}
+      <div className="flex items-center gap-4">
+        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            fill
+            className="object-cover"
+            sizes="48px"
+          />
+        </div>
+        <div>
+          <p className="text-sm font-medium text-gray-200">
+            {testimonial.name}
+          </p>
+          <p className="text-xs text-gray-500">{testimonial.role}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [active, setActive] = useState(0);
 
   return (
     <section className="relative py-24 md:py-32">
@@ -72,113 +132,38 @@ export default function Testimonials() {
 
         <LineReveal className="mb-16" />
 
-        <div ref={ref} className="mx-auto max-w-4xl">
-          {/* Main quote */}
-          <div className="relative mb-12 min-h-[200px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center"
-              >
-                {/* Quote mark */}
-                <span className="mb-6 block font-nacelle text-6xl leading-none text-gray-700">
-                  &ldquo;
-                </span>
-                <blockquote className="mb-8 text-lg leading-relaxed text-gray-300 sm:text-xl md:text-2xl md:leading-relaxed">
-                  {testimonials[active].quote}
-                </blockquote>
-                <div className="flex flex-col items-center gap-3">
-                  <Image
-                    src={testimonials[active].image}
-                    alt={testimonials[active].name}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover grayscale"
-                  />
-                  <div>
-                    <p className="text-sm font-medium text-gray-200">
-                      {testimonials[active].name}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      {testimonials[active].role}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation dots */}
-          <div className="flex items-center justify-center gap-3">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className="group relative p-2"
-                aria-label={`View testimonial ${i + 1}`}
-              >
-                <motion.div
-                  className="h-1.5 rounded-full bg-gray-700"
-                  animate={{
-                    width: i === active ? 32 : 6,
-                    backgroundColor:
-                      i === active
-                        ? "rgb(255, 255, 255)"
-                        : "rgb(55, 65, 81)",
-                  }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </button>
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
+          {/* Top row — 2 featured cards */}
+          <div className="mb-6 grid gap-6 md:grid-cols-2">
+            {testimonials.slice(0, 2).map((t, i) => (
+              <TestimonialCard
+                key={t.name}
+                testimonial={t}
+                index={i}
+                featured
+              />
             ))}
           </div>
 
-          {/* Small testimonial cards — visible on desktop */}
-          <motion.div
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
-            }}
-            className="mt-16 hidden grid-cols-5 gap-3 lg:grid"
-          >
-            {testimonials.map((t, i) => (
-              <motion.button
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                onClick={() => setActive(i)}
-                className={`rounded-lg border p-4 text-left transition-all duration-300 ${
-                  i === active
-                    ? "border-gray-600 bg-gray-900/60"
-                    : "border-gray-800/50 bg-transparent hover:border-gray-700"
-                }`}
-              >
-                <div className="mb-2 flex items-center gap-2">
-                  <Image
-                    src={t.image}
-                    alt={t.name}
-                    width={24}
-                    height={24}
-                    className="rounded-full object-cover grayscale"
-                  />
-                  <p className="truncate text-xs font-medium text-gray-300">
-                    {t.name}
-                  </p>
-                </div>
-                <p className="line-clamp-2 text-xs text-gray-600">
-                  {t.quote.slice(0, 80)}...
-                </p>
-              </motion.button>
+          {/* Bottom row — 3 standard cards */}
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonials.slice(2).map((t, i) => (
+              <TestimonialCard
+                key={t.name}
+                testimonial={t}
+                index={i + 2}
+              />
             ))}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
