@@ -51,6 +51,7 @@ import Products from "@/components/sections/products";
 import Projects from "@/components/sections/projects";
 import Testimonials from "@/components/testimonials";
 import Articles from "@/components/sections/articles";
+import Impact from "@/components/sections/impact";
 import Cta from "@/components/cta";
 
 export default function Home() {
@@ -62,6 +63,7 @@ export default function Home() {
       <About />
       <Services />
       <TechStack />
+      <Impact />
       <Process />
       <Products />
       <Projects />

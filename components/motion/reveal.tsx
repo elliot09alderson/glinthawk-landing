@@ -134,11 +134,13 @@ export function CountUp({
   suffix = "",
   prefix = "",
   duration = 2,
+  decimals = 0,
 }: {
   target: number;
   suffix?: string;
   prefix?: string;
   duration?: number;
+  decimals?: number;
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
@@ -148,7 +150,8 @@ export function CountUp({
     stiffness: 100,
     duration: duration * 1000,
   });
-  const display = useTransform(springValue, (v) => `${prefix}${Math.round(v)}${suffix}`);
+  const dp = decimals > 0 ? decimals : target % 1 !== 0 ? 1 : 0;
+  const display = useTransform(springValue, (v) => `${prefix}${dp > 0 ? v.toFixed(dp) : Math.round(v)}${suffix}`);
 
   if (isInView) {
     motionValue.set(target);
