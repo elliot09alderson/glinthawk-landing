@@ -39,8 +39,39 @@ const nacelle = localFont({
 });
 
 export const metadata = {
-  title: "Glinthawk Technology",
-  description: "Best Software and Product Company",
+  title: {
+    default: "Glinthawk Technology — AI-First Product & Service Company",
+    template: "%s | Glinthawk Technology",
+  },
+  description:
+    "We engineer intelligent digital solutions — AI products, autonomous agents, mobile & desktop apps, digital marketing, and SEO. Based in Bhilai, Chhattisgarh.",
+  keywords: [
+    "Glinthawk",
+    "AI products",
+    "software development company",
+    "Bhilai",
+    "Chhattisgarh",
+    "AI agents",
+    "mobile app development",
+    "digital marketing",
+    "SEO",
+    "GEO optimization",
+  ],
+  authors: [{ name: "Glinthawk Technology" }],
+  metadataBase: new URL("https://glinthawk.com"),
+  openGraph: {
+    title: "Glinthawk Technology — AI-First Product & Service Company",
+    description:
+      "We engineer intelligent digital solutions — from AI-powered products to full-stack applications.",
+    siteName: "Glinthawk Technology",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Glinthawk Technology",
+    description:
+      "AI-first product & service company. Engineering intelligent solutions from Bhilai, India.",
+  },
 };
 
 export default function RootLayout({
@@ -49,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >

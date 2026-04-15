@@ -1,68 +1,161 @@
-import VideoThumb from "@/public/images/hero-image-01.jpg";
-import ModalVideo from "@/components/modal-video";
-import Link from "next/link";
-// import TypeWritterEffect from "./TypeWritterEffect";
-export default function HeroHome() {
-  return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Hero content */}
-        <div className="py-12 md:py-20">
-          {/* Section header */}
-          <div className="pb-12 text-center md:pb-20">
-            <h1></h1>
-            <h1
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
-              data-aos="fade-up"
-            >
-              We Build Best Software tools for product
-            </h1>
-            <div className="mx-auto max-w-3xl">
-              <p
-                className="mb-8 text-xl text-indigo-200/65"
-                data-aos="fade-up"
-                data-aos-delay={200}
-              >
-                Our leading business tools works on all devices, so you only
-                have to set it up once, and get beautiful results forever.
-              </p>
-              <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-                <div data-aos="fade-up" data-aos-delay={400}>
-                  <a
-                    className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
-                  >
-                    <span className="relative inline-flex items-center">
-                      Start Building
-                      <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                        -&gt;
-                      </span>
-                    </span>
-                  </a>
-                </div>
-                <div data-aos="fade-up" data-aos-delay={600}>
-                  <Link
-                    className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                    href="#0"
-                  >
-                    Schedule a call
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+"use client";
 
-          <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1104}
-            thumbHeight={576}
-            thumbAlt="Modal video thumbnail"
-            video="videos//video.mp4"
-            videoWidth={1920}
-            videoHeight={1080}
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const line1Words = ["We", "design,", "build", "&", "scale"];
+const line2Words = ["digital", "products."];
+
+export default function Hero() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  return (
+    <section
+      ref={containerRef}
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Dot grid background */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(160,160,180,0.6) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      {/* Vertical lines */}
+      <div className="pointer-events-none absolute inset-0 mx-auto flex max-w-6xl justify-between px-4 sm:px-6">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-px bg-gray-800/40"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{
+              duration: 1.5,
+              delay: 0.5 + i * 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{ transformOrigin: "top" }}
           />
-        </div>
+        ))}
       </div>
+
+      <motion.div
+        style={{ y, opacity }}
+        className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 text-center"
+      >
+        {/* Main headline */}
+        <h1 className="mb-10 font-nacelle text-[2.75rem] font-semibold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+          <span className="block">
+            {line1Words.map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden">
+                <motion.span
+                  className="inline-block text-gray-100"
+                  initial={{ y: "120%", rotateX: -40 }}
+                  animate={{ y: 0, rotateX: 0 }}
+                  transition={{
+                    delay: 0.3 + i * 0.08,
+                    duration: 0.8,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  style={{ marginRight: "0.25em" }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </span>
+          <span className="mt-2 block sm:mt-3">
+            {line2Words.map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden">
+                <motion.span
+                  className="inline-block text-gray-100"
+                  initial={{ y: "120%", rotateX: -40 }}
+                  animate={{ y: 0, rotateX: 0 }}
+                  transition={{
+                    delay: 0.7 + i * 0.08,
+                    duration: 0.8,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  style={{ marginRight: "0.25em" }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </span>
+        </h1>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mb-14 max-w-xl text-base leading-relaxed text-gray-500 sm:text-lg"
+        >
+          Software engineering, AI systems, and growth strategy
+          for companies that refuse to stand still.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.7 }}
+          className="flex flex-col justify-center gap-4 sm:flex-row"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex items-center justify-center rounded-lg bg-white px-8 py-3.5 text-sm font-medium text-gray-950 transition-all duration-300 hover:bg-gray-200"
+          >
+            Work with us
+            <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
+              &rarr;
+            </span>
+          </a>
+          <a
+            href="#services"
+            className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-8 py-3.5 text-sm font-medium text-gray-400 transition-all duration-300 hover:border-gray-500 hover:text-gray-200"
+          >
+            See what we do
+          </a>
+        </motion.div>
+
+        {/* Location badge */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+          className="mt-24 inline-flex items-center gap-2.5 text-sm text-gray-600"
+        >
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+          Bhilai, Chhattisgarh
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex h-10 w-6 items-start justify-center rounded-full border border-gray-800 pt-2"
+        >
+          <div className="h-1.5 w-0.5 rounded-full bg-gray-600" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

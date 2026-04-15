@@ -1,53 +1,150 @@
-import Image from "next/image";
-import BlurredShape from "@/public/images/blurred-shape.svg";
-import Link from "next/link";
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Reveal } from "@/components/motion/reveal";
 
 export default function Cta() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <section className="relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -mb-24 ml-20 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <Image
-          className="max-w-none"
-          src={BlurredShape}
-          width={760}
-          height={668}
-          alt="Blurred shape"
-        />
-      </div>
-      <div className="max-w6xl mx-auto px-4 sm:px-6">
-        <div className="bg-linear-to-r from-transparent via-gray-800/50 py-12 md:py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-8 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
-              data-aos="fade-up"
-            >
-              Have an Idea ? {". "}Let's Implement
-            </h2>
-            <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-              <div data-aos="fade-up" data-aos-delay={400}>
-                <a
-                  className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                  href="#0"
-                >
-                  <span className="relative inline-flex items-center">
-                    Start Building the business
-                    <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                      -&gt;
+    <section id="contact" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div
+          ref={ref}
+          className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/30 px-6 py-16 sm:px-12 md:py-24"
+        >
+          {/* Corner decorations */}
+          <div className="pointer-events-none absolute left-0 top-0 h-24 w-px bg-gray-600/30" />
+          <div className="pointer-events-none absolute left-0 top-0 h-px w-24 bg-gray-600/30" />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-px bg-gray-600/30" />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-px w-24 bg-gray-600/30" />
+
+          {/* Dot pattern */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, rgb(160,160,180) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+
+          <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left — CTA Text */}
+            <div>
+              <Reveal>
+                <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">
+                  Let&apos;s Talk
+                </p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <h2 className="mb-6 font-nacelle text-3xl font-semibold leading-tight text-gray-100 sm:text-4xl md:text-5xl">
+                  Ready to build
+                  <br />
+                  something extraordinary?
+                </h2>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="mb-8 max-w-md text-base text-gray-400">
+                  Whether you have a clear vision or just a spark of an idea —
+                  we&apos;ll help you turn it into reality. Let&apos;s start a
+                  conversation.
+                </p>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <a
+                    href="mailto:hello@glinthawk.com"
+                    className="group inline-flex items-center justify-center rounded-lg bg-white px-7 py-3.5 text-sm font-medium text-gray-950 transition-all duration-300 hover:bg-gray-200"
+                  >
+                    Get in Touch
+                    <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
+                      &rarr;
                     </span>
-                  </span>
-                </a>
-              </div>
-              <div data-aos="fade-up" data-aos-delay={600}>
-                <Link
-                  className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                  href="#0"
-                >
-                  Schedule a meeting
-                </Link>
-              </div>
+                  </a>
+                  <a
+                    href="tel:+919XXXXXXXXX"
+                    className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-7 py-3.5 text-sm font-medium text-gray-300 transition-all duration-300 hover:border-gray-600 hover:text-white"
+                  >
+                    Schedule a Call
+                  </a>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right — Contact Info */}
+            <div className="flex flex-col justify-center">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={
+                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }
+                }
+                transition={{
+                  duration: 0.7,
+                  delay: 0.3,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="space-y-8"
+              >
+                {/* Office */}
+                <div>
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600">
+                    Office
+                  </p>
+                  <p className="text-sm leading-relaxed text-gray-300">
+                    Near IIT Bhilai
+                    <br />
+                    Bhilai, Chhattisgarh 490023
+                    <br />
+                    India
+                  </p>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:hello@glinthawk.com"
+                    className="text-sm text-gray-300 transition-colors hover:text-white"
+                  >
+                    hello@glinthawk.com
+                  </a>
+                </div>
+
+                {/* Working Hours */}
+                <div>
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600">
+                    Working Hours
+                  </p>
+                  <p className="text-sm text-gray-300">
+                    Monday — Friday
+                    <br />
+                    10:00 AM — 7:00 PM IST
+                  </p>
+                </div>
+
+                {/* Social */}
+                <div>
+                  <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-600">
+                    Follow Us
+                  </p>
+                  <div className="flex gap-4">
+                    {["X / Twitter", "LinkedIn", "GitHub"].map((platform) => (
+                      <a
+                        key={platform}
+                        href="#0"
+                        className="text-xs text-gray-500 transition-colors hover:text-white"
+                      >
+                        {platform}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
