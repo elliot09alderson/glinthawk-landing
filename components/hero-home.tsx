@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden pt-20"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden pt-32 md:pt-36"
     >
       {/* Dot grid background */}
       <div
