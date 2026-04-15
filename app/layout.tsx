@@ -43,7 +43,7 @@ const nacelle = localFont({
 export const metadata: Metadata = {
   title: {
     default:
-      "Glinthawk Technology — AI Software Development & Digital Marketing Company in Chhattisgarh",
+      "Glinthawk Technology — AI-First Software & Marketing",
     template: "%s | Glinthawk Technology",
   },
   description:

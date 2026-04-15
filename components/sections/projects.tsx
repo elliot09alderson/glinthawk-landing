@@ -6,20 +6,39 @@ import { Reveal, LineReveal } from "@/components/motion/reveal";
 
 const projects = [
   {
-    title: "E-Commerce Marketplace",
-    category: "Full-Stack Web",
+    title: "ZXCom",
+    category: "E-Commerce",
     description:
-      "A high-traffic marketplace with AI-powered product recommendations, real-time inventory management, and seamless payment integration serving thousands of daily transactions.",
+      "A full-featured e-commerce platform with product catalog management, secure payment integration, order tracking, and an admin dashboard for inventory and sales analytics.",
     tech: ["React", "Node.js", "PostgreSQL", "AWS"],
-    metrics: "3x conversion increase",
+    metrics: "zxcom.in",
+    link: "https://zxcom.in",
   },
   {
-    title: "Healthcare Management System",
-    category: "Enterprise Software",
+    title: "Crimson Bricks",
+    category: "E-Commerce",
     description:
-      "End-to-end patient management platform with predictive health analytics, appointment scheduling, and HIPAA-compliant data handling for a network of 50+ clinics.",
-    tech: ["Flutter", "Python", "TensorFlow", "GCP"],
-    metrics: "50+ clinics onboarded",
+      "End-to-end online retail platform with modern storefront design, cart management, payment gateway integration, and a streamlined checkout experience for customers.",
+    tech: ["Next.js", "Node.js", "MongoDB", "Razorpay"],
+    metrics: "crimsonbricks.com",
+    link: "https://crimsonbricks.com",
+  },
+  {
+    title: "Nirmal Handloom",
+    category: "E-Commerce",
+    description:
+      "An e-commerce platform for handloom products featuring product catalogs, category-based browsing, order management, and a mobile-responsive shopping experience.",
+    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    metrics: "nirmalhandloom.com",
+    link: "https://nirmalhandloom.com",
+  },
+  {
+    title: "AI Support Agent",
+    category: "AI Product",
+    description:
+      "An autonomous customer support agent powered by LLM orchestration. Handles ticket triage, query resolution, and escalation — reducing manual workload by 70% for a mid-size e-commerce client.",
+    tech: ["Python", "LangChain", "OpenAI", "PostgreSQL"],
+    metrics: "70% automation",
   },
   {
     title: "FinTech Trading Dashboard",
@@ -28,22 +47,6 @@ const projects = [
       "A real-time trading analytics platform processing millions of data points per second, with customizable dashboards, alerting, and AI-driven market insights.",
     tech: ["Next.js", "Go", "Redis", "WebSocket"],
     metrics: "Sub-100ms latency",
-  },
-  {
-    title: "Smart City IoT Platform",
-    category: "IoT & Infrastructure",
-    description:
-      "Connected infrastructure monitoring system integrating thousands of IoT sensors for traffic management, air quality monitoring, and resource optimization.",
-    tech: ["React", "Python", "AWS IoT", "Grafana"],
-    metrics: "10,000+ sensors",
-  },
-  {
-    title: "AI Content Studio",
-    category: "AI Product",
-    description:
-      "A generative AI platform for content teams — automating copywriting, image generation, video scripting, and multi-channel publishing with brand voice consistency.",
-    tech: ["Next.js", "LangChain", "OpenAI", "Vercel"],
-    metrics: "80% time saved",
   },
   {
     title: "Enterprise Resource Planner",
