@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Reveal } from "@/components/motion/reveal";
+import SectionGlow from "@/components/motion/section-glow";
 
 export default function Cta() {
   const ref = useRef(null);
@@ -29,6 +30,23 @@ export default function Cta() {
                 "radial-gradient(circle, rgb(160,160,180) 1px, transparent 1px)",
               backgroundSize: "24px 24px",
             }}
+          />
+
+          {/* Atmospheric glow */}
+          <SectionGlow
+            color="violet"
+            className="-right-40 -top-40"
+            size={600}
+            intensity={0.9}
+            rotate={-20}
+          />
+          <SectionGlow
+            color="indigo"
+            className="-bottom-32 -left-32"
+            size={480}
+            intensity={0.7}
+            rotate={15}
+            showArcs={false}
           />
 
           <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16">

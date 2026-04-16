@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import SectionGlow from "@/components/motion/section-glow";
 
 const line1Words = ["We", "design,", "build", "&", "scale"];
 const line2Words = ["digital", "products."];
@@ -20,6 +21,22 @@ export default function Hero() {
       ref={containerRef}
       className="relative flex min-h-[100svh] items-center justify-center overflow-hidden pt-32 md:pt-36"
     >
+      {/* Atmospheric glows */}
+      <SectionGlow
+        color="indigo"
+        className="-top-40 left-1/2 -translate-x-1/2"
+        size={900}
+        intensity={0.9}
+      />
+      <SectionGlow
+        color="violet"
+        className="-bottom-40 -left-40"
+        size={520}
+        rotate={25}
+        intensity={0.6}
+        showArcs={false}
+      />
+
       {/* Dot grid background */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.08]"

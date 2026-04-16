@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal, LineReveal, CountUp } from "@/components/motion/reveal";
+import SectionGlow from "@/components/motion/section-glow";
 
 const highlights = [
   { number: 50, suffix: "+", label: "Projects Delivered" },
@@ -11,8 +12,17 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="about" className="relative overflow-hidden py-24 md:py-32">
+      {/* Atmospheric glow */}
+      <SectionGlow
+        color="violet"
+        className="-right-40 top-20"
+        size={620}
+        intensity={0.8}
+        rotate={-15}
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Section label */}
         <Reveal>
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">

@@ -8,6 +8,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Reveal, LineReveal, CountUp } from "@/components/motion/reveal";
+import SectionGlow from "@/components/motion/section-glow";
 
 /* ── data ─────────────────────────────────────────────── */
 
@@ -381,8 +382,16 @@ function ScrollNumberCard({
 
 export default function Impact() {
   return (
-    <section className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section className="relative overflow-hidden py-24 md:py-32">
+      {/* Atmospheric glow */}
+      <SectionGlow
+        color="blue"
+        className="-top-20 left-1/2 -translate-x-1/2"
+        size={800}
+        intensity={0.7}
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-16 text-center">
           <Reveal>
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">

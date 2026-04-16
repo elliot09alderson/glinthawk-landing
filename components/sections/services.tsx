@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Reveal, LineReveal } from "@/components/motion/reveal";
+import SectionGlow from "@/components/motion/section-glow";
 
 const services = [
   {
@@ -162,8 +163,17 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="services" className="relative overflow-hidden py-24 md:py-32">
+      {/* Atmospheric glow */}
+      <SectionGlow
+        color="indigo"
+        className="-left-48 top-1/3"
+        size={700}
+        intensity={0.75}
+        rotate={20}
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-16 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <Reveal>
