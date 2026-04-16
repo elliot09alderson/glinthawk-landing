@@ -13,13 +13,25 @@ export default function Cta() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div
           ref={ref}
-          className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/30 px-6 py-16 sm:px-12 md:py-24"
+          className="relative overflow-hidden rounded-2xl border border-indigo-900/40 bg-indigo-950/15 px-6 py-16 sm:px-12 md:py-24"
+          style={{
+            background: "linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(7,9,30,0.95) 50%, rgba(139,92,246,0.06) 100%)",
+            borderColor: "rgba(99,102,241,0.25)",
+          }}
         >
           {/* Corner decorations */}
-          <div className="pointer-events-none absolute left-0 top-0 h-24 w-px bg-gray-600/30" />
-          <div className="pointer-events-none absolute left-0 top-0 h-px w-24 bg-gray-600/30" />
-          <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-px bg-gray-600/30" />
-          <div className="pointer-events-none absolute bottom-0 right-0 h-px w-24 bg-gray-600/30" />
+          <div className="pointer-events-none absolute left-0 top-0 h-24 w-px bg-indigo-500/40" />
+          <div className="pointer-events-none absolute left-0 top-0 h-px w-24 bg-indigo-500/40" />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-px bg-violet-500/40" />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-px w-24 bg-violet-500/40" />
+          {/* Glow orb inside CTA */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-0 h-64 w-96 -translate-x-1/2 -translate-y-1/2"
+            style={{
+              background: "radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)",
+              filter: "blur(30px)",
+            }}
+          />
 
           {/* Dot pattern */}
           <div

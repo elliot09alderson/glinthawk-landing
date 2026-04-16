@@ -22,11 +22,20 @@ export default function Hero() {
     >
       {/* Dot grid background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(160,160,180,0.6) 1px, transparent 1px)",
+            "radial-gradient(circle, rgba(129,140,248,0.5) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
+        }}
+      />
+
+      {/* Radial fade mask over grid — so it doesn't compete with headline */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, transparent 30%, #07091e 80%)",
         }}
       />
 
@@ -35,7 +44,7 @@ export default function Hero() {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="w-px bg-gray-800/40"
+            className="w-px bg-indigo-900/30"
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{
@@ -99,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mb-14 max-w-xl text-base leading-relaxed text-gray-500 sm:text-lg"
+          className="mx-auto mb-14 max-w-xl text-base leading-relaxed text-gray-400 sm:text-lg"
         >
           Software engineering, AI systems, and growth strategy
           for companies that refuse to stand still.
@@ -123,7 +132,7 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-8 py-3.5 text-sm font-medium text-gray-400 transition-all duration-300 hover:border-gray-500 hover:text-gray-200"
+            className="inline-flex items-center justify-center rounded-lg border border-indigo-900/50 bg-indigo-950/30 px-8 py-3.5 text-sm font-medium text-gray-300 backdrop-blur-sm transition-all duration-300 hover:border-indigo-700/60 hover:bg-indigo-900/30 hover:text-white"
           >
             See what we do
           </a>
@@ -151,9 +160,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex h-10 w-6 items-start justify-center rounded-full border border-gray-800 pt-2"
+          className="flex h-10 w-6 items-start justify-center rounded-full border border-indigo-900/50 bg-indigo-950/20 pt-2 backdrop-blur-sm"
         >
-          <div className="h-1.5 w-0.5 rounded-full bg-gray-600" />
+          <div className="h-1.5 w-0.5 rounded-full bg-indigo-400/60" />
         </motion.div>
       </motion.div>
     </section>

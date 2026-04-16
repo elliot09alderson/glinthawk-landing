@@ -84,14 +84,14 @@ function ServiceCard({
     >
       {/* Top border that animates on hover */}
       <motion.div
-        className="absolute left-0 right-0 top-0 h-px bg-white"
+        className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-indigo-500 via-violet-400 to-indigo-500"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isHovered ? 1 : 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{ transformOrigin: "left" }}
       />
 
-      <div className="border-t border-gray-800 py-8 transition-all duration-500 group-hover:border-transparent md:py-10">
+      <div className="border-t border-indigo-900/30 py-8 transition-all duration-500 group-hover:border-transparent md:py-10">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="mb-3 flex items-center gap-4">

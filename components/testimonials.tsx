@@ -72,7 +72,7 @@ function TestimonialCard({
           },
         },
       }}
-      className={`group rounded-2xl border border-gray-800 bg-gray-900/20 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/40 ${
+      className={`group rounded-2xl border border-indigo-900/30 bg-indigo-950/10 transition-all duration-300 hover:border-indigo-700/50 hover:bg-indigo-950/20 ${
         featured ? "p-8 md:p-10" : "p-6 md:p-8"
       }`}
     >

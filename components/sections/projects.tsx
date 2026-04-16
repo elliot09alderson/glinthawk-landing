@@ -82,7 +82,7 @@ function ProjectCard({
         },
       }}
       onClick={() => setIsExpanded(!isExpanded)}
-      className="group relative cursor-pointer rounded-xl border border-gray-800 bg-gray-900/20 p-6 transition-all duration-500 hover:border-gray-700 hover:bg-gray-900/40 md:p-8"
+      className="group relative cursor-pointer rounded-xl border border-indigo-900/30 bg-indigo-950/10 p-6 transition-all duration-500 hover:border-indigo-700/50 hover:bg-indigo-950/20 md:p-8"
     >
       <div className="mb-4 flex items-center justify-between">
         <span className="text-xs font-medium uppercase tracking-wider text-gray-500">
@@ -118,7 +118,7 @@ function ProjectCard({
       </AnimatePresence>
 
       {/* Bottom info */}
-      <div className="mt-4 flex items-center justify-between border-t border-gray-800/50 pt-4">
+      <div className="mt-4 flex items-center justify-between border-t border-indigo-900/20 pt-4">
         <div className="flex flex-wrap gap-1.5">
           {project.tech.map((t) => (
             <span
