@@ -93,7 +93,7 @@ export default function Cta() {
             </div>
 
             {/* Right — Contact Info */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col items-end justify-center text-right">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={
@@ -104,7 +104,7 @@ export default function Cta() {
                   delay: 0.3,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="space-y-8"
+                className="space-y-8 text-right"
               >
                 {/* Office */}
                 <div>
