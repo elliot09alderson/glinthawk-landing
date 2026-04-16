@@ -70,7 +70,7 @@ export default function About() {
             <div className="mb-12 grid grid-cols-2 gap-6">
               {highlights.map((stat, i) => (
                 <Reveal key={stat.label} delay={0.2 + i * 0.1}>
-                  <div className="rounded-xl border border-indigo-900/40 bg-indigo-950/20 p-6 transition-colors duration-300 hover:border-indigo-700/50 hover:bg-indigo-950/30">
+                  <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 transition-colors duration-300 hover:border-gray-700">
                     <p className="mb-1 font-nacelle text-3xl font-semibold text-white sm:text-4xl">
                       <CountUp
                         target={stat.number}
@@ -103,9 +103,9 @@ export default function About() {
                 ].map((item) => (
                   <div
                     key={item.title}
-                    className="flex gap-4 rounded-lg border border-transparent p-4 transition-all duration-300 hover:border-indigo-900/40 hover:bg-indigo-950/20"
+                    className="flex gap-4 rounded-lg border border-transparent p-4 transition-all duration-300 hover:border-gray-800 hover:bg-gray-900/30"
                   >
-                    <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-indigo-400/70" />
+                    <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-gray-500" />
                     <div>
                       <p className="mb-1 text-sm font-medium text-gray-200">
                         {item.title}

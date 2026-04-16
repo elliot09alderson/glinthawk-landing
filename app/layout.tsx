@@ -77,6 +77,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://glinthawktechnologies.com",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Glinthawk Technology — AI Software Development & Digital Marketing",
     description:
@@ -85,6 +93,14 @@ export const metadata: Metadata = {
     siteName: "Glinthawk Technology",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/GlintHawk-logo.png",
+        width: 500,
+        height: 500,
+        alt: "Glinthawk Technology Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -127,8 +143,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${nacelle.variable} font-inter text-base text-gray-200 antialiased`}
-        style={{ backgroundColor: "#07091e" }}
+        className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
         <JsonLd />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">

@@ -153,6 +153,16 @@ export default function JsonLd() {
       {
         "@type": "Service",
         position: 6,
+        name: "Web Development & E-Commerce",
+        description:
+          "Full-stack web application development including e-commerce platforms, marketing websites, and enterprise portals using Next.js, React, and modern web technologies.",
+        provider: { "@type": "Organization", name: "Glinthawk Technology" },
+        areaServed: "Worldwide",
+        serviceType: "Web Development",
+      },
+      {
+        "@type": "Service",
+        position: 7,
         name: "Desktop Application Development",
         description:
           "Cross-platform desktop application development for Windows, macOS, and Linux using Electron, Tauri, and native technologies.",

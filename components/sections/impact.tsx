@@ -48,7 +48,7 @@ function BarChart() {
   const maxValue = Math.max(...barMetrics.map((m) => m.value));
 
   return (
-    <div ref={ref} className="rounded-xl border border-indigo-900/30 bg-indigo-950/10 p-6 md:p-8">
+    <div ref={ref} className="rounded-xl border border-gray-800 bg-gray-900/20 p-6 md:p-8">
       <p className="mb-6 text-xs font-medium uppercase tracking-wider text-gray-500">
         Performance Metrics
       </p>
@@ -179,7 +179,7 @@ function ProgressRing({
 
 function RingsRow() {
   return (
-    <div className="flex items-center justify-around rounded-xl border border-indigo-900/30 bg-indigo-950/10 p-6 md:p-8">
+    <div className="flex items-center justify-around rounded-xl border border-gray-800 bg-gray-900/20 p-6 md:p-8">
       {ringStats.map((stat, i) => (
         <ProgressRing
           key={stat.label}
@@ -223,7 +223,7 @@ function GrowthChart() {
   return (
     <div
       ref={ref}
-      className="rounded-xl border border-indigo-900/30 bg-indigo-950/10 p-6 md:p-8"
+      className="rounded-xl border border-gray-800 bg-gray-900/20 p-6 md:p-8"
     >
       <div className="mb-4 flex items-baseline justify-between">
         <p className="text-xs font-medium uppercase tracking-wider text-gray-500">
@@ -362,7 +362,7 @@ function ScrollNumberCard({
   return (
     <motion.div
       style={{ y, opacity }}
-      className="rounded-xl border border-indigo-900/30 bg-indigo-950/10 p-5 text-center transition-colors hover:border-indigo-700/50 md:p-6"
+      className="rounded-xl border border-gray-800 bg-gray-900/20 p-5 text-center transition-colors hover:border-gray-700 md:p-6"
     >
       <p className="mb-1 font-nacelle text-2xl font-semibold text-white md:text-3xl">
         <CountUp

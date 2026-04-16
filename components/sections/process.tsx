@@ -98,7 +98,7 @@ export default function Process() {
               >
                 {/* Step number dot */}
                 <div className="relative z-10 hidden shrink-0 md:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-900/50 bg-indigo-950/60 text-sm font-medium text-indigo-300">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-800 bg-gray-950 text-sm font-medium text-gray-500">
                     {step.number}
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export default function Process() {
                   <div
                     className={`${
                       step.highlight
-                        ? "rounded-xl border border-indigo-800/40 bg-indigo-950/20 p-6"
+                        ? "rounded-xl border border-gray-800 bg-gray-900/30 p-6"
                         : ""
                     }`}
                   >
@@ -122,7 +122,7 @@ export default function Process() {
                       {step.number}
                     </span>
                     {step.highlight && (
-                      <span className="mb-3 inline-block rounded-full border border-indigo-700/50 bg-indigo-900/30 px-3 py-0.5 text-xs text-indigo-300">
+                      <span className="mb-3 inline-block rounded-full border border-gray-700 bg-gray-800/50 px-3 py-0.5 text-xs text-gray-400">
                         What sets us apart
                       </span>
                     )}

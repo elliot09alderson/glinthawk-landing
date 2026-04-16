@@ -41,7 +41,7 @@ export default function Header() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-[#07091e]/85 backdrop-blur-xl border-b border-indigo-900/30"
+            ? "bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50"
             : "bg-transparent"
         }`}
       >
@@ -66,7 +66,7 @@ export default function Header() {
           <div className="hidden items-center gap-4 md:flex">
             <a
               href="#contact"
-              className="rounded-lg border border-indigo-800/50 bg-indigo-950/30 px-5 py-2 text-sm font-medium text-gray-200 backdrop-blur-sm transition-all duration-300 hover:border-indigo-600/60 hover:bg-indigo-900/40 hover:text-white"
+              className="rounded-lg border border-gray-700 bg-white/5 px-5 py-2 text-sm font-medium text-gray-300 transition-all duration-300 hover:border-gray-500 hover:bg-white/10 hover:text-white"
             >
               Get in touch
             </a>
@@ -117,7 +117,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 backdrop-blur-xl md:hidden" style={{ backgroundColor: "rgba(7,9,30,0.97)" }}
+            className="fixed inset-0 z-40 bg-gray-950/95 backdrop-blur-xl md:hidden"
           >
             <nav className="flex h-full flex-col items-center justify-center gap-8">
               {navLinks.map((link, i) => (

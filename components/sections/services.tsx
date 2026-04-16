@@ -31,6 +31,14 @@ const services = [
   },
   {
     id: "04",
+    title: "Web Development",
+    short: "Websites, apps & e-commerce",
+    description:
+      "From blazing-fast marketing sites to full-scale e-commerce platforms — we build responsive, SEO-optimised web applications using Next.js, React, and modern web standards. Production platforms like zxcom.in, crimsonbricks.com, and nirmalhandloom.com are built by us.",
+    tags: ["Next.js", "React", "E-Commerce", "REST APIs", "Performance"],
+  },
+  {
+    id: "05",
     title: "Mobile Applications",
     short: "Native Android & iOS experiences",
     description:
@@ -38,7 +46,7 @@ const services = [
     tags: ["Android", "iOS", "Flutter", "React Native"],
   },
   {
-    id: "05",
+    id: "06",
     title: "Desktop Applications",
     short: "Cross-platform desktop power",
     description:
@@ -46,7 +54,7 @@ const services = [
     tags: ["Electron", "Tauri", "Windows", "macOS"],
   },
   {
-    id: "06",
+    id: "07",
     title: "AI Products & Agents",
     short: "Intelligence, automated",
     description:
@@ -84,14 +92,14 @@ function ServiceCard({
     >
       {/* Top border that animates on hover */}
       <motion.div
-        className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-indigo-500 via-violet-400 to-indigo-500"
+        className="absolute left-0 right-0 top-0 h-px bg-white"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isHovered ? 1 : 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{ transformOrigin: "left" }}
       />
 
-      <div className="border-t border-indigo-900/30 py-8 transition-all duration-500 group-hover:border-transparent md:py-10">
+      <div className="border-t border-gray-800 py-8 transition-all duration-500 group-hover:border-transparent md:py-10">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="mb-3 flex items-center gap-4">
