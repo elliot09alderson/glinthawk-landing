@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Reveal, LineReveal } from "@/components/motion/reveal";
 
@@ -51,40 +49,16 @@ const testimonials = [
 
 function TestimonialCard({
   testimonial,
-  index,
-  featured = false,
 }: {
   testimonial: (typeof testimonials)[0];
-  index: number;
-  featured?: boolean;
 }) {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.6,
-            delay: index * 0.1,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        },
-      }}
-      className={`group rounded-2xl border border-gray-800 bg-gray-900/20 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/40 ${
-        featured ? "p-8 md:p-10" : "p-6 md:p-8"
-      }`}
-    >
-      {/* Quote */}
+    <div className="group mx-3 w-[340px] shrink-0 rounded-2xl border border-gray-800 bg-gray-900/30 p-7 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/50 sm:w-[400px] sm:p-8">
+      {/* Quote mark */}
       <span className="mb-4 block font-nacelle text-3xl leading-none text-gray-800">
         &ldquo;
       </span>
-      <blockquote
-        className={`mb-8 leading-relaxed text-gray-300 ${
-          featured ? "text-base sm:text-lg" : "text-sm"
-        }`}
-      >
+      <blockquote className="mb-8 text-sm leading-relaxed text-gray-300 sm:text-base">
         {testimonial.quote}
       </blockquote>
 
@@ -106,64 +80,53 @@ function TestimonialCard({
           <p className="text-xs text-gray-500">{testimonial.role}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Testimonials() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  // Duplicate list for seamless infinite loop
+  const loopList = [...testimonials, ...testimonials];
 
   return (
-    <section className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mb-16 text-center">
-          <Reveal>
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">
-              Testimonials
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="mb-4 font-nacelle text-3xl font-semibold text-gray-100 sm:text-4xl md:text-5xl">
-              What our clients say
-            </h2>
-          </Reveal>
+    <section className="relative overflow-hidden py-24 md:py-32">
+      <div className="mb-16 text-center">
+        <Reveal>
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">
+            Testimonials
+          </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="mb-4 font-nacelle text-3xl font-semibold text-gray-100 sm:text-4xl md:text-5xl">
+            What our clients say
+          </h2>
+        </Reveal>
+      </div>
+
+      <div className="mx-auto mb-12 max-w-6xl px-4 sm:px-6">
+        <LineReveal />
+      </div>
+
+      {/* Marquee track */}
+      <div className="relative">
+        {/* Vignette — left edge */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-gray-950 via-gray-950/80 to-transparent sm:w-40"
+        />
+        {/* Vignette — right edge */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-gray-950 via-gray-950/80 to-transparent sm:w-40"
+        />
+
+        <div className="flex overflow-hidden">
+          <div className="marquee-track flex">
+            {loopList.map((t, i) => (
+              <TestimonialCard key={`${t.name}-${i}`} testimonial={t} />
+            ))}
+          </div>
         </div>
-
-        <LineReveal className="mb-16" />
-
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } },
-          }}
-        >
-          {/* Top row — 2 featured cards */}
-          <div className="mb-6 grid gap-6 md:grid-cols-2">
-            {testimonials.slice(0, 2).map((t, i) => (
-              <TestimonialCard
-                key={t.name}
-                testimonial={t}
-                index={i}
-                featured
-              />
-            ))}
-          </div>
-
-          {/* Bottom row — 3 standard cards */}
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.slice(2).map((t, i) => (
-              <TestimonialCard
-                key={t.name}
-                testimonial={t}
-                index={i + 2}
-              />
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
